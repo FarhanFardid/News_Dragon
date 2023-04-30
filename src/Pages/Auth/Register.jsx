@@ -1,10 +1,27 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, Form, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../providers/AuthProvider';
 const Register = () => {
+
+  const{createUser} = useContext(AuthContext);
+  const handleSignUp = event =>{
+    event.preventDefault();
+    const form = event.target;
+    const name= form.name.value
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(name,email,password);
+    createUser(email,password)
+    .then(result =>{
+      const signedUser = result.user;
+      console.log(signedUser);
+    })
+    .catch(error=>{console.log(error)})
+  }
     return (
         <div className='m-3 p-3'>
-              <Form className='m-5 p-5 bg-secondary border-1 rounded-2'>
+              <Form onSubmit={handleSignUp} className='m-5 p-5 bg-secondary border-1 rounded-2'>
       <Row className="mx-auto  w-50">
         <h2 className='fw-bold p-3 text-center text-white '>Please Register Account</h2>
         <Form.Group controlId="formGridName" className='p-3'>

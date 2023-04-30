@@ -10,7 +10,12 @@ import { FaUserCircle} from 'react-icons/fa';
 
 const Header = () => {
 
-  const {user} = useContext(AuthContext);
+  const {logout,user} = useContext(AuthContext);
+  const handleLogout = () =>{
+    logout()
+    .then(() => {})
+    .catch(error => {console.log(error)})
+  }
     return (
         <Container>
            <div className="text-center">
@@ -41,7 +46,7 @@ const Header = () => {
           <Nav>
             {user && <Nav.Link className='fw-bold p-2' href="#"><FaUserCircle style={{fontSize: '2.5rem'}}/></Nav.Link>}
             
-           { user ? <Button className='px-4 fw-bold bg-secondary' >
+           { user ? <Button onClick={handleLogout} className='px-4 fw-bold bg-secondary' >
               Logout
             </Button> :
             <Button className='px-4 fw-bold bg-secondary ' ><Link to="/auth/login" className='text-white text-decoration-none fs-5'>  Login </Link>
