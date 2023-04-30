@@ -11,6 +11,8 @@ import News from "../Pages/News/News";
 import Login from "../Pages/Auth/Login";
 import AuthLayout from "../Layout/AuthLayout";
 import Register from "../Pages/Auth/Register";
+import PrivateRoutes from "./PrivateRoutes";
+import Terms from "../Pages/Auth/Terms";
 
 const router = createBrowserRouter([
     {
@@ -24,7 +26,7 @@ const router = createBrowserRouter([
             },
             {
                 path:'category/:id',
-                element:<Category></Category>,
+                element:<PrivateRoutes><Category></Category></PrivateRoutes>,
                 loader : ({params}) => fetch(`http://localhost:5000/categories/${params.id}`)
             },
            
@@ -36,7 +38,7 @@ const router = createBrowserRouter([
         children:[
             {
                 path:':id',
-                element:<News></News>,
+                element:<PrivateRoutes><News></News></PrivateRoutes>,
                 loader: ({params}) => fetch(`http://localhost:5000/news/${params.id}`)
             }
         ]
@@ -52,6 +54,10 @@ const router = createBrowserRouter([
             {
                 path:'register',
                 element:<Register></Register>
+            },
+            {
+                path:'terms',
+                element:<Terms></Terms>
             }
         ]
     }

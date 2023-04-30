@@ -1,10 +1,12 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Form, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 const Register = () => {
 
-  const{createUser} = useContext(AuthContext);
+  const{createUser,profileUpdate} = useContext(AuthContext);
+  const navigate = useNavigate();
+  const [accepted,setAccepted] = useState(false);
   const handleSignUp = event =>{
     event.preventDefault();
     const form = event.target;
@@ -12,12 +14,22 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log(name,email,password);
+
+   
     createUser(email,password)
     .then(result =>{
       const signedUser = result.user;
+      profileUpdate(signedUser,name)
       console.log(signedUser);
+      form.reset()
+      navigate('/auth/login')
     })
     .catch(error=>{console.log(error)})
+
+  
+  }
+  const handleTerms = event =>{
+    setAccepted(event.target.checked);
   }
     return (
         <div className='m-3 p-3'>
@@ -39,11 +51,15 @@ const Register = () => {
         </Form.Group>
 
         <Form.Group className="m-2 p-3" controlId="formBasicCheckbox">
-        <Form.Check className='fw-bold fs-5 text-white' name="accept" type="checkbox" label="Accept Terms & Conditions" />
+        <Form.Check className='fw-bold fs-5 text-white' 
+        onClick={handleTerms}
+        name="accept" 
+        type="checkbox"
+         label={<>Accept <Link to="/auth/terms" className='text-warning'> Terms & Conditions </Link></>}/>
       </Form.Group>
       </Row>
 
-<div className='text-center p-3'> <Button variant="primary" type="submit" className='w-25 fw-bolder fs-5 m-3'>
+<div className='text-center p-3'> <Button variant="primary" type="submit" disabled={!accepted} className='w-25 fw-bolder fs-5 m-3'>
      Sign Up
       </Button></div>
       <p className='text-white fs-5 fw-bold text-center'>Already have a Dragon News account ? <Link to="/auth/login" className=' text-info text-decoration-none'>Login </Link> </p>
