@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import logo from '../../../assets/logo.png'
 import moment from 'moment';
 import { Button, Container, Nav, NavDropdown, Navbar } from 'react-bootstrap';
 import Marquee from "react-fast-marquee";
+import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../providers/AuthProvider';
+import { FaUserCircle} from 'react-icons/fa';
+
 
 const Header = () => {
+
+  const {user} = useContext(AuthContext);
     return (
         <Container>
            <div className="text-center">
@@ -25,17 +31,22 @@ const Header = () => {
         <Navbar.Brand href="#home" className='fw-bolder fs-4'>Dragon News</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="mx-auto fw-bold">
-            <Nav.Link href="#">Home</Nav.Link>
-            <Nav.Link href="#">About</Nav.Link>
-            <Nav.Link href="#">Career</Nav.Link>
+          <Nav className="mx-auto fw-bold fs-4 ">
+            <Link className='text-decoration-none p-2 text-secondary' to="/home">Home</Link> 
+            <Link className='text-decoration-none p-2 text-secondary' to="/home">About</Link> 
+            <Link className='text-decoration-none p-2 text-secondary' to="/home">Career</Link> 
+
         
           </Nav>
           <Nav>
-            <Nav.Link className='fw-bold p-3' href="#">Profile</Nav.Link>
-            <Button className='px-4 fw-bold bg-secondary' >
-              Login
-            </Button>
+            {user && <Nav.Link className='fw-bold p-2' href="#"><FaUserCircle style={{fontSize: '2.5rem'}}/></Nav.Link>}
+            
+           { user ? <Button className='px-4 fw-bold bg-secondary' >
+              Logout
+            </Button> :
+            <Button className='px-4 fw-bold bg-secondary ' ><Link to="/auth/login" className='text-white text-decoration-none fs-5'>  Login </Link>
+            
+            </Button>}
           </Nav>
         </Navbar.Collapse>
       </Container>

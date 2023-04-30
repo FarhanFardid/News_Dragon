@@ -13,7 +13,6 @@ const Main = () => {
         <div>
             <Header></Header>
             
-           
             <Container>
       <Row>
         <Col lg={3}>

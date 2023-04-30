@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { Card, Col, Row } from 'react-bootstrap';
 import {Link} from 'react-router-dom'
+
+import ed1 from '../../../assets/1.png'
+import ed2 from '../../../assets/2.png'
+import ed3 from '../../../assets/3.png'
+
 const LeftNavbar = () => {
     const [categories,setCategories] = useState([]);
      
@@ -24,6 +30,47 @@ const LeftNavbar = () => {
                     </p> )
                 }
             </div>
+            <div className='p-3 mt-2'>
+            <h3 className='fw-bold p-2'>Editors Insights</h3>
+                <Row xs={1} md={1} lg={1} className="g-4">
+       
+       <Col >
+         <Card>
+           <Card.Img variant="top" src={ed1} />
+           <Card.Body>
+             <Card.Title>The average price for a house in the Hamptons just hit a record $3 million</Card.Title>
+             <Card.Text>
+
+             </Card.Text>
+           </Card.Body>
+         </Card>
+       </Col>
+       <Col >
+         <Card>
+           <Card.Img variant="top" src={ed2} />
+           <Card.Body>
+             <Card.Title>Universities Invoking Title IX to Stifle Journalists</Card.Title>
+             <Card.Text>
+            
+             </Card.Text>
+           </Card.Body>
+         </Card>
+       </Col>
+       <Col >
+         <Card>
+           <Card.Img variant="top" src={ed3} />
+           <Card.Body>
+             <Card.Title>Union groundbreaking on sleek sports complex</Card.Title>
+             <Card.Text>
+            
+             </Card.Text>
+           </Card.Body>
+         </Card>
+       </Col>
+  
+   </Row>
+
+        </div>
         </div>
     );
 };
