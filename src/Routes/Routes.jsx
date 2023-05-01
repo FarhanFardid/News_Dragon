@@ -22,12 +22,12 @@ const router = createBrowserRouter([
             {
                 path:'/home',
                 element:<Category></Category>,
-                loader: () => fetch(`http://localhost:5000/news`)
+                loader: () => fetch(`https://news-dragon-server-farhanfardid.vercel.app/news`)
             },
             {
                 path:'category/:id',
                 element:<PrivateRoutes><Category></Category></PrivateRoutes>,
-                loader : ({params}) => fetch(`http://localhost:5000/categories/${params.id}`)
+                loader : ({params}) => fetch(`https://news-dragon-server-farhanfardid.vercel.app/categories/${params.id}`)
             },
            
         ]
@@ -39,7 +39,7 @@ const router = createBrowserRouter([
             {
                 path:':id',
                 element:<PrivateRoutes><News></News></PrivateRoutes>,
-                loader: ({params}) => fetch(`http://localhost:5000/news/${params.id}`)
+                loader: ({params}) => fetch(`https://news-dragon-server-farhanfardid.vercel.app/news/${params.id}`)
             }
         ]
     },
