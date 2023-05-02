@@ -34,12 +34,12 @@ const Login = () => {
         <h2 className='fw-bold p-3 text-center text-white '>Login Please</h2>
         <Form.Group controlId="formGridEmail" className='p-3'>
           <Form.Label className='fw-bold fs-5 text-white'>Email</Form.Label>
-          <Form.Control type="email"  name="email" placeholder="Enter email" className='h-75' />
+          <Form.Control type="email"  name="email" placeholder="Enter email" className='h-75' required />
         </Form.Group>
 
         <Form.Group controlId="formGridPassword" className='p-3'>
           <Form.Label className='fw-bold fs-5 text-white'>Password</Form.Label>
-          <Form.Control type="password" name="password" placeholder="Enter Password"  className='h-75'/>
+          <Form.Control type="password" name="password" placeholder="Enter Password"  className='h-75' required/>
         </Form.Group>
       </Row>
 

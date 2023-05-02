@@ -38,16 +38,16 @@ const Register = () => {
         <h2 className='fw-bold p-3 text-center text-white '>Please Register Account</h2>
         <Form.Group controlId="formGridName" className='p-3'>
           <Form.Label className='fw-bold fs-5 text-white'>Name</Form.Label>
-          <Form.Control type="text"  name="name" placeholder="Enter your Name" className='h-75' />
+          <Form.Control type="text"  name="name" placeholder="Enter your Name" className='h-75' required />
         </Form.Group>
         <Form.Group controlId="formGridEmail" className='p-3'>
           <Form.Label className='fw-bold fs-5 text-white'>Email</Form.Label>
-          <Form.Control type="email"  name="email" placeholder="Enter your email" className='h-75' />
+          <Form.Control type="email"  name="email" placeholder="Enter your email" className='h-75' required />
         </Form.Group>
 
         <Form.Group controlId="formGridPassword" className='p-3'>
           <Form.Label className='fw-bold fs-5 text-white'>Password</Form.Label>
-          <Form.Control type="password" name="password" placeholder="Enter Password"  className='h-75'/>
+          <Form.Control type="password" name="password" placeholder="Enter Password"  className='h-75' required/>
         </Form.Group>
 
         <Form.Group className="m-2 p-3" controlId="formBasicCheckbox">
