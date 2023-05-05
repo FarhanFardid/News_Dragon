@@ -20,7 +20,7 @@ const Header = () => {
         <Container>
            <div className="text-center">
             <img className='p-3' src={logo} alt="logo" />
-            <p className='fw-bolder fs-5 p-2'>Journalism Without Fear or Favor</p>
+            <p className='fw-bolder fs-5 p-2'>Journalism Without Fear and Favor</p>
             <p className='fw-bold'>{moment().format('dddd, MMMM Do, YYYY')}</p>
 
             <div className='d-flex justify-content-center align-items-center p-3'>
@@ -37,9 +37,9 @@ const Header = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mx-auto fw-bold fs-4 ">
-            <Link className='text-decoration-none p-2 text-secondary' to="/home">Home</Link> 
-            <Link className='text-decoration-none p-2 text-secondary' to="/home">About</Link> 
-            <Link className='text-decoration-none p-2 text-secondary' to="/home">Career</Link> 
+            <Link className='text-decoration-none p-2 text-secondary' to="/">Home</Link> 
+            <Link className='text-decoration-none p-2 text-secondary' to="/">News</Link> 
+         
 
         
           </Nav>

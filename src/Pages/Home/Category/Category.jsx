@@ -1,8 +1,10 @@
 import React from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
 import NewsCard from '../NewsCard/NewsCard';
+import useTitle from '../../../Hooks/useTitle';
 
 const Category = () => {
+    useTitle('Home')
     const {id} = useParams();
     const caterogyNews = useLoaderData();
     return (
