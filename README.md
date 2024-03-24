@@ -1,5 +1,5 @@
 
-News Dragon
+# News Dragon
 
 This project is a demonstration of an online news portal that allows users to browse news articles based on categories and view individual news details.
 
