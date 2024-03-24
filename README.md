@@ -1,9 +1,9 @@
 
 # News Dragon
 
-This project is a demonstration of an online news portal that allows users to browse news articles based on categories and view individual news details.
+## This project is a demonstration of an online news portal that allows users to browse news articles based on categories and view individual news details.
 
-Features: 
+### Features: 
 
 i. Category-based News Display: Users can browse news articles based on categories such as sports, politics, entertainment, technology, etc.
 
